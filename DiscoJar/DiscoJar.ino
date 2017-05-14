@@ -1,5 +1,5 @@
 // If you want to control the DiscoJar via WIFI using an ESP8266, uncomment this:
-#define USE_WIFI
+//#define USE_WIFI
 
 /* 
 This is the code for the instructable DiscoJar, done by Florian Link (at) gmx.de
@@ -38,9 +38,7 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifdef USE_WIFI
 #include "WIFIControl.h"
-#endif
 
 //----- Global state -----------------------------------------------------------------------
 State _myState;
@@ -269,6 +267,9 @@ void setup()
 
 #ifdef USE_WIFI
   setupWebServer();
+#else
+  // show rainbow for three seconds
+  delay(3000);
 #endif
 }
 
